@@ -13,5 +13,6 @@ yarp_add_plugin(skinprototype skinprototype.h skinprototype.cpp)
 target_link_libraries(skinprototype ${YARP_LIBRARIES})
 
 icub_export_library(skinprototype)
+yarp_install(FILES skinprototype_manifest.ini  DESTINATION ${ICUB_PLUGIN_MANIFESTS_INSTALL_DIR})
 
 endif (NOT SKIP_skinprototype)

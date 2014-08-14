@@ -16,9 +16,13 @@ PREPARE_DEVICE(embObjMotionControl TYPE embObjMotionControl
   INCLUDE(../embObjLib/embObjLib.cmake)
   INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR} ${YARP_INCLUDE_DIRS} ${iCubDev_INCLUDE_DIRS} )
 
+ 
 #    yarp_add_plugin(embObjMotionControl embObjMotionControl.cpp embObjMotionControl.h usrcbk/eOcfg_nvsEP_mc_usrcbk_pippo.c )
     yarp_add_plugin(embObjMotionControl embObjMotionControl.cpp embObjMotionControl.h)
     TARGET_LINK_LIBRARIES(embObjMotionControl debugStream ethResources iCubDev ${YARP_LIBRARIES} ${ACE_LIBRARIES})
     icub_export_library(embObjMotionControl)
+    
+    yarp_install(FILES embObjMotionControl_manifest.ini  DESTINATION ${ICUB_PLUGIN_MANIFESTS_INSTALL_DIR})
+    
 ENDIF (NOT SKIP_embObjMotionControl)
 

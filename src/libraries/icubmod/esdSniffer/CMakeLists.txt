@@ -18,6 +18,8 @@ IF(NOT SKIP_esdsniffer)
     yarp_add_plugin(esdsniffer EsdMessageSniffer.cpp EsdMessageSniffer.h)
     TARGET_LINK_LIBRARIES(esdsniffer  ${ESDCANAPI_LIB} ${YARP_LIBRARIES})
     icub_export_library(esdsniffer)
+    yarp_install(FILES esdsniffer_manifest.ini  DESTINATION ${ICUB_PLUGIN_MANIFESTS_INSTALL_DIR})
+
   ENDIF(NOT ESDCANAPI_FOUND)
 
 ENDIF(NOT SKIP_esdsniffer)

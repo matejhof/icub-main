@@ -3,7 +3,7 @@
 # CopyPolicy: Released under the terms of the GNU GPL v2.0.
 
 
-PREPARE_DEVICE(icubheadcalibratorV2 TYPE iCubHeadCalibratorV2 INCLUDE iCubHeadCalibratorV2.h)
+PREPARE_DEVICE(icubheadcalibratorV2 TYPE iCubHeadCalibratorV2 INCLUDE iCubHeadCalibratorV2.h LIBNAME headcalibratorV2)
 
 if (NOT SKIP_icubheadcalibratorV2)
 
@@ -12,5 +12,6 @@ yarp_add_plugin(headcalibratorV2 iCubHeadCalibratorV2.cpp iCubHeadCalibratorV2.h
 target_link_libraries(headcalibratorV2 ${YARP_LIBRARIES})
 
 icub_export_library(headcalibratorV2)
+yarp_install(FILES icubheadcalibratorV2_manifest.ini  DESTINATION ${ICUB_PLUGIN_MANIFESTS_INSTALL_DIR})
 
 endif(NOT SKIP_icubheadcalibratorV2)

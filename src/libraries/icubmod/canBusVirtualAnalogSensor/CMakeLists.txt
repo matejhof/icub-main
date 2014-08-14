@@ -2,7 +2,7 @@
 # Authors: Marco Randazzo <marco.randazzo@iit.it>
 # CopyPolicy: Released under the terms of the GNU GPL v2.0.
 
-PREPARE_DEVICE(canBusVirtualAnalogSensor TYPE CanBusVirtualAnalogSensor INCLUDE CanBusVirtualAnalogSensor.h WRAPPER grabber)
+PREPARE_DEVICE(canBusVirtualAnalogSensor TYPE CanBusVirtualAnalogSensor INCLUDE CanBusVirtualAnalogSensor.h WRAPPER virtualAnalogServer)
 
 if (NOT SKIP_canBusVirtualAnalogSensor)
 
@@ -15,6 +15,7 @@ yarp_add_plugin(canBusVirtualAnalogSensor CanBusVirtualAnalogSensor.h CanBusVirt
 target_link_libraries(canBusVirtualAnalogSensor ${YARP_LIBRARIES})
 
 icub_export_library(canBusVirtualAnalogSensor)
+yarp_install(FILES canBusVirtualAnalogSensor_manifest.ini  DESTINATION ${ICUB_PLUGIN_MANIFESTS_INSTALL_DIR})
 
 else(ICUB_HAS_icub_firmware_shared)
   message(ERROR " canBusVirtualAnalogSensor: cannot find icub_firmware_shared library, turn off device

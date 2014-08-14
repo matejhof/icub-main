@@ -18,5 +18,7 @@ IF (NOT SKIP_gazecontrollerclient)
    TARGET_LINK_LIBRARIES(gazecontrollerclient ${YARP_LIBRARIES})
 
    icub_export_library(gazecontrollerclient)
+   yarp_install(FILES gazecontrollerclient_manifest.ini  DESTINATION ${ICUB_PLUGIN_MANIFESTS_INSTALL_DIR})
+
 ENDIF (NOT SKIP_gazecontrollerclient)
 

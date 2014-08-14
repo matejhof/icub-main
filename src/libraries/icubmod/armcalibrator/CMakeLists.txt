@@ -3,9 +3,9 @@
 # CopyPolicy: Released under the terms of the GNU GPL v2.0.
 
 IF (COMPILE_DEVICE_LIBRARY)
-  PREPARE_DEVICE(icubarmcalibrator TYPE iCubArmCalibrator INCLUDE iCubArmCalibrator.h)
-  PREPARE_DEVICE(icubarmcalibratorj8 TYPE iCubArmCalibratorJ8 INCLUDE iCubArmCalibratorJ8.h)
-  PREPARE_DEVICE(DFKI_hand_calibrator TYPE DFKI_hand_calibrator INCLUDE DFKI_hand_calibrator.h)
+  PREPARE_DEVICE(icubarmcalibrator TYPE iCubArmCalibrator INCLUDE iCubArmCalibrator.h LIBNAME armcalibrator)
+  PREPARE_DEVICE(icubarmcalibratorj8 TYPE iCubArmCalibratorJ8 INCLUDE iCubArmCalibratorJ8.h LIBNAME armcalibratorj8)
+  PREPARE_DEVICE(DFKI_hand_calibrator TYPE DFKI_hand_calibrator INCLUDE DFKI_hand_calibrator.h LIBNAME DFKI_hand_calibrator)
 ENDIF (COMPILE_DEVICE_LIBRARY)
 
 
@@ -27,4 +27,14 @@ IF (NOT SKIP_icubarmcalibratorj8 OR NOT SKIP_icubarmcalibrator OR NOT SKIP_DFKI_
 
 endif (NOT SKIP_icubarmcalibratorj8 OR NOT SKIP_icubarmcalibrator OR NOT SKIP_DFKI_hand_calibrator)
 
+if(NOT SKIP_icubarmcalibrator)
+    yarp_install(FILES icubarmcalibrator_manifest.ini  DESTINATION ${ICUB_PLUGIN_MANIFESTS_INSTALL_DIR})
+endif(NOT SKIP_icubarmcalibrator)
 
+if(NOT SKIP_icubarmcalibratorj8)
+    yarp_install(FILES icubarmcalibratorj8_manifest.ini  DESTINATION ${ICUB_PLUGIN_MANIFESTS_INSTALL_DIR})
+endif(NOT SKIP_icubarmcalibratorj8)
+
+if(NOT SKIP_DFKI_hand_calibrator)
+    yarp_install(FILES DFKI_hand_calibrator_manifest.ini  DESTINATION ${ICUB_PLUGIN_MANIFESTS_INSTALL_DIR})
+endif(NOT SKIP_DFKI_hand_calibrator)

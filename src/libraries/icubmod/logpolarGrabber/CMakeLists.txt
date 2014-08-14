@@ -16,5 +16,6 @@ IF(NOT SKIP_logpolargrabber)
                                         ${YARP_LIBRARIES})
                                         
   icub_export_library(logpolargrabber)
-                                        
+  yarp_install(FILES logpolargrabber_manifest.ini  DESTINATION ${ICUB_PLUGIN_MANIFESTS_INSTALL_DIR})
+
 ENDIF(NOT SKIP_logpolargrabber)

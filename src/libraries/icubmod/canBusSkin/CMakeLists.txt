@@ -2,7 +2,7 @@
 # Authors: Lorenzo Natale
 # CopyPolicy: Released under the terms of the GNU GPL v2.0.
 
-PREPARE_DEVICE(canBusSkin TYPE CanBusSkin INCLUDE CanBusSkin.h WRAPPER grabber)
+PREPARE_DEVICE(canBusSkin TYPE CanBusSkin INCLUDE CanBusSkin.h WRAPPER skinwrapper)
 
 if (NOT SKIP_canBusSkin)
 if(ICUB_HAS_icub_firmware_shared)
@@ -18,6 +18,7 @@ yarp_add_plugin(canBusSkin CanBusSkin.h CanBusSkin.cpp ../motionControlLib/SkinC
 target_link_libraries(canBusSkin ${YARP_LIBRARIES})
 
 icub_export_library(canBusSkin)
+yarp_install(FILES canBusSkin_manifest.ini  DESTINATION ${ICUB_PLUGIN_MANIFESTS_INSTALL_DIR})
 
 
 else(ICUB_HAS_icub_firmware_shared)

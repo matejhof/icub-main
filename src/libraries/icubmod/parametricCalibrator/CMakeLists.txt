@@ -14,4 +14,6 @@ if(ENABLE_parametricCalibrator)
     yarp_add_plugin(parametricCalibrator parametricCalibrator.h parametricCalibrator.cpp)
     target_link_libraries(parametricCalibrator debugStream ${YARP_LIBRARIES})
     icub_export_library(parametricCalibrator)
+    yarp_install(FILES parametricCalibrator_manifest.ini  DESTINATION ${ICUB_PLUGIN_MANIFESTS_INSTALL_DIR})
+
 endif()

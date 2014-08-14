@@ -2,7 +2,7 @@
 # Authors: Lorenzo Natale
 # CopyPolicy: Released under the terms of the GNU GPL v2.0.
 
-PREPARE_DEVICE(icubheadcalibrator TYPE iCubHeadCalibrator INCLUDE iCubHeadCalibrator.h)
+PREPARE_DEVICE(icubheadcalibrator TYPE iCubHeadCalibrator INCLUDE iCubHeadCalibrator.h LIBNAME headcalibrator)
 
 if (NOT SKIP_icubheadcalibrator)
 
@@ -11,5 +11,6 @@ yarp_add_plugin(headcalibrator iCubHeadCalibrator.cpp iCubHeadCalibrator.h)
 target_link_libraries(headcalibrator ${YARP_LIBRARIES})
 
 icub_export_library(headcalibrator)
+yarp_install(FILES icubheadcalibrator_manifest.ini  DESTINATION ${ICUB_PLUGIN_MANIFESTS_INSTALL_DIR})
 
 endif(NOT SKIP_icubheadcalibrator)

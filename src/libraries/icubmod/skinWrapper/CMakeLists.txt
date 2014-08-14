@@ -15,4 +15,6 @@ IF (NOT SKIP_${PROJECTNAME})
   yarp_add_plugin(${PROJECTNAME} ${PROJECTNAME}.cpp ${PROJECTNAME}.h ${CMAKE_SOURCE_DIR}/src/libraries/icubmod/analogServer/analogServer.cpp ${CMAKE_SOURCE_DIR}/src/libraries/icubmod/analogServer/analogServer.h)
   TARGET_LINK_LIBRARIES(${PROJECTNAME}  debugStream ${YARP_LIBRARIES} ${ACE_LIBRARIES})
   icub_export_library(${PROJECTNAME})
+  yarp_install(FILES skinWrapper_manifest.ini  DESTINATION ${ICUB_PLUGIN_MANIFESTS_INSTALL_DIR})
+
 ENDIF (NOT SKIP_${PROJECTNAME})
